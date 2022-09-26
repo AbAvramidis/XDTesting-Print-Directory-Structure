@@ -8,7 +8,9 @@ name: Print directory structure
 
 # The decription of the action
 description: This is an action that is able to print the stucture of the directories present in the repository at the moment of execution. 
-inputs:
+on: 
+ workflow_call:
+   inputs:
       running_dir:
         type: string
         description: "This is the command to run for the tf-ga-helper"
@@ -18,8 +20,7 @@ inputs:
 branding:
   icon: 'box'  
   color: 'blue'
-env:
-  running_dir: ${{ inputs.running_dir }}
+
 runs:
   using: "composite"
     # Steps that will be executed as part of the job
